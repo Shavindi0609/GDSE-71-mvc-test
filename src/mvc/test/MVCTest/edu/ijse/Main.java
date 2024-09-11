@@ -8,7 +8,7 @@ package mvc.test.MVCTest.edu.ijse;
  *
  * @author Shavindi
  */
-public class mvc {
+public class Main {
 
     /**
      * @param args the command line arguments
