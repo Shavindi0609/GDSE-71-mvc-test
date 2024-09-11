@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
  */
 public class CustomerModel {
     
+    
     public String saveCustomer(CustomerDTO customerDTO) throws Exception{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "INSERT INTO Customer VALUES (?,?,?,?,?,?,?,?,?)";
@@ -32,6 +33,41 @@ public class CustomerModel {
         
         int result = statement.executeUpdate();
         return result > 0 ? "Successfully Saved" : "Fail";
+    }
+    
+    
+    public String updateCustomer(CustomerDTO customerDTO) throws Exception{
+        Connection connection = DBConnection.getInstance().getConnection();
+        String sql = "UPDATE CUSTOMER SET CustTitle = ?, CustName = ?,  DOB = ?, salary = ?, CustAddress = ?, City = ?, Province = ?, PostalCode = ? WHERE CustID = ? ";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        
+       
+        statement.setString(1, customerDTO.getTitle());
+        statement.setString(2, customerDTO.getName());
+        statement.setString(3, customerDTO.getDob());
+        statement.setDouble(4, customerDTO.getSalary());
+        statement.setString(5, customerDTO.getAddress());
+        statement.setString(6, customerDTO.getCity());
+        statement.setString(7, customerDTO.getProvince());
+        statement.setString(8, customerDTO.getPostalCode());
+        
+        int result = statement.executeUpdate();
+        
+        return result > 0 ? "Successfully Updated" : "Fail";
+    }
+    
+    
+    
+    public String deleteCustomer(String id) throws Exception{
+        Connection connection = DBConnection.getInstance().getConnection();
+        String sql = "DELETE FROM CUSTOMER WHERE CustID = ? ";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        
+         statement.setString(1, id);
+      
+        int result = statement.executeUpdate();
+        
+        return result > 0 ? "Successfully Deleted" : "Fail";
     }
     
 }
