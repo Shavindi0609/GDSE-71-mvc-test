@@ -84,7 +84,8 @@ public class CustomerModel {
         if(rst.next()){
             CustomerDTO dto = new CustomerDTO(rst.getString(1),
                     rst.getString(2), rst.getString(3),
-                     rst.getString(4), rst.getString(5),
+                     rst.getString(4), rst.getDouble
+                                              (5),
                      rst.getString(6), rst.getString(7),
                      rst.getString(8), rst.getString(9));
                     
@@ -107,8 +108,8 @@ public class CustomerModel {
         
         while(rst.next()){
             CustomerDTO dto = new CustomerDTO(rst.getString(1),
-                    rst.getString(2), rst.getString(3),
-                     rst.getString(4), rst.getString(5),
+                     rst.getString(2), rst.getString(3),
+                     rst.getString(4), rst.getDouble(5),
                      rst.getString(6), rst.getString(7),
                      rst.getString(8), rst.getString(9),
             customerDtos.add(dto);
@@ -118,5 +119,5 @@ public class CustomerModel {
         
     }
         
-}}
+
 }
