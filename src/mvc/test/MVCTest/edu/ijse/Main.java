@@ -4,6 +4,8 @@
  */
 package mvc.test.MVCTest.edu.ijse;
 
+import mvc.test.MVCTest.edu.ijse.db.DBConnection;
+
 /**
  *
  * @author Shavindi
